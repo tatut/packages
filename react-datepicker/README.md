@@ -2,7 +2,7 @@
 
 [](dependency)
 ```clojure
-[cljsjs/react-datepicker "0.55.0-0"] ;; latest release
+[cljsjs/react-datepicker "1.5.0-0"] ;; latest release
 ```
 [](/dependency)
 
@@ -14,7 +14,7 @@ you can require the packaged library like so:
 (ns application.core
   (:require [cljsjs.react-datepicker]))
 
-(def date-picker (.createFactory js/React (.-default js/DatePicker)))
+(def date-picker (.createFactory js/React js/DatePicker)))
 ```
 
 [flibs]: https://clojurescript.org/reference/packaging-foreign-deps

@@ -1,10 +1,10 @@
 (set-env!
  :resource-paths #{"resources"}
- :dependencies '[[cljsjs/boot-cljsjs "0.9.0"  :scope "test"]])
+ :dependencies '[[cljsjs/boot-cljsjs "0.10.3"  :scope "test"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
-(def +lib-version+ "1.30.0")
+(def +lib-version+ "1.36.1")
 (def +version+ (str +lib-version+ "-0"))
 
 (task-options!
@@ -18,7 +18,6 @@
 (deftask package []
   (comp
    (download  :url      (format "https://github.com/plotly/plotly.js/archive/v%s.zip" +lib-version+)
-              :checksum "B29E4A288CA67BA1C311998C7064D650"
               :unzip    true)
    (sift      :move     {#"^plotly(.*)/dist/plotly.js"
                          "cljsjs/plotly/development/plotly.inc.js"
@@ -27,4 +26,5 @@
    (sift      :include  #{#"^cljsjs"})
    (deps-cljs :name     "cljsjs.plotly")
    (pom)
-   (jar)))
+   (jar)
+   (validate-checksums)))

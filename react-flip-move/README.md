@@ -2,7 +2,7 @@
 
 [](dependency)
 ```clojure
-[cljsjs/react-flip-move "2.9.17-0"] ;; latest release
+[cljsjs/react-flip-move "3.0.1-1"] ;; latest release
 ```
 [](/dependency)
 
@@ -32,5 +32,9 @@ Here's a simple reagent example:
                                    (into {} (shuffle (seq s)))))}
       "Shuffle"]])
 ```
+
+## Npm style names
+
+Also provides name `react-flip-move` which supports `:global-exports`.
 
 [flibs]: https://clojurescript.org/reference/packaging-foreign-deps

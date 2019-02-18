@@ -9,11 +9,11 @@ module.exports = {
     externals: {
         "react": "React",
         "react-dom": "ReactDOM",
+        "prop-types": "PropTypes",
         "highlight.js": "hljs"
     },
 
     output: {
-        path: 'dist',
         filename: '[name].js',
         libraryTarget: "var",
         library: "Highlight"
@@ -23,7 +23,7 @@ module.exports = {
         loaders: [
           {
             test: /\.js$/,
-            loader: 'babel',
+            loader: 'babel-loader',
             include: path.join(__dirname, 'src')
           },
           {

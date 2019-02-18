@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 {"cljsjs/react-leaflet/production/react-leaflet.min.inc.js"
  "A35E31A86655DD9FDDF3A7D2F0245791"}
+=======
+{"cljsjs/react-leaflet/development/react-leaflet.inc.js"
+ "C59BE2FCB8557ABBC48C70FAA8DA4948",
+ "cljsjs/react-leaflet/production/react-leaflet.min.inc.js"
+ "BA70FE4C04B24C7F851658DA29B198B4"}
+>>>>>>> c25e199a0d697f6700a85756e91b8e63ab92080c

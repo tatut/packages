@@ -1,10 +1,14 @@
 (set-env!
   :resource-paths #{"resources"}
-  :dependencies '[[cljsjs/boot-cljsjs "0.9.0" :scope "test"]])
+  :dependencies '[[cljsjs/boot-cljsjs "0.10.3" :scope "test"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
+<<<<<<< HEAD
 (def +lib-version+ "1.3.0")
+=======
+(def +lib-version+ "1.4.0")
+>>>>>>> c25e199a0d697f6700a85756e91b8e63ab92080c
 (def +version+ (str +lib-version+ "-0"))
 
 (task-options!
@@ -30,4 +34,8 @@
               :global-exports '{leaflet L})
    (pom)
    (jar)
+<<<<<<< HEAD
    (validate-checksums)))
+=======
+   (validate)))
+>>>>>>> c25e199a0d697f6700a85756e91b8e63ab92080c

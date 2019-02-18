@@ -1,12 +1,12 @@
 (set-env!
  :resource-paths #{"resources"}
- :dependencies '[[cljsjs/boot-cljsjs "0.9.0"  :scope "test"]])
+ :dependencies '[[cljsjs/boot-cljsjs "0.10.3"  :scope "test"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all]
          '[boot.core :as boot])
 
-(def +lib-version+ "1.6.1")
-(def +version+ (str +lib-version+ "-1"))
+(def +lib-version+ "2.0.4")
+(def +version+ (str +lib-version+ "-0"))
 
 (task-options!
  pom  {:project     'cljsjs/clipboard
@@ -18,12 +18,11 @@
 
 (deftask package []
   (comp
-   (download :url (str "https://github.com/zenorocha/clipboard.js/archive/v" +lib-version+ ".zip")
-             :checksum "0ffb60261a8e3a15071165e3b194925d"
-             :unzip true)
+   (download :url (str "https://github.com/zenorocha/clipboard.js/archive/v" +lib-version+ ".zip") :unzip true)
    (sift :move {#"^clipboard.js-[^/]+/dist/clipboard.js" "cljsjs/clipboard/development/clipboard.inc.js"})
    (sift :move {#"^clipboard.js-[^/]+/dist/clipboard.min.js" "cljsjs/clipboard/production/clipboard.min.inc.js"})
    (sift :include #{#"^cljsjs"})
    (deps-cljs :name "cljsjs.clipboard")
    (pom)
-   (jar)))
+   (jar)
+   (validate-checksums)))

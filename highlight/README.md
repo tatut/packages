@@ -2,7 +2,7 @@
 
 [](dependency)
 ```clojure
-[cljsjs/highlight "9.12.0-1"] ;; latest release
+[cljsjs/highlight "9.12.0-2"] ;; latest release
 ```
 [](/dependency)
 
@@ -219,5 +219,10 @@ cljsjs.highlight.langs.xquery
 cljsjs.highlight.langs.yaml
 cljsjs.highlight.langs.zephir
 ```
+
+
+## Npm style names
+
+Also provides names `highlight.js` and `highlight.js/lib/languages/<name>`.
 
 [flibs]: https://clojurescript.org/reference/packaging-foreign-deps

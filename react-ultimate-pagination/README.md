@@ -2,7 +2,7 @@
 
 [](dependency)
 ```clojure
-[cljsjs/react-ultimate-pagination "0.8.0-0"] ;; latest release
+[cljsjs/react-ultimate-pagination "1.2.0-1"] ;; latest release
 ```
 [](/dependency)
 
@@ -13,6 +13,13 @@ you can require the packaged library like so:
 ```clojure
 (ns application.core
   (:require cljsjs.react-ultimate-pagination))
+```
+
+This package supports `:global-exports`
+
+```clojure
+(ns application.core
+  (:require [react-ultimate-pagination :refer [createUltimatePagination]]))
 ```
 
 [flibs]: https://clojurescript.org/reference/packaging-foreign-deps

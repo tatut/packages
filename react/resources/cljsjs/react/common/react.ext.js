@@ -217,6 +217,21 @@ React.Component.prototype.componentWillUnmount = function() {};
 React.Component.prototype.componentDidCatch = function() {};
 
 /**
+ * @protected
+ */
+React.Component.prototype.getDerivedStateFromProps = function() {};
+
+/**
+ * @protected
+ */
+React.Component.prototype.getDerivedStateFromError = function() {};
+
+/**
+ * @protected
+ */
+React.Component.prototype.getSnapshotBeforeUpdate = function() {};
+
+/**
  * @return {React.Component}
  * @protected
  */
@@ -378,6 +393,11 @@ React.ReactAttribute.onSubmit;
  * @type {Function}
  */
 React.ReactAttribute.onClick;
+
+/**
+ * @type {Function}
+ */
+React.ReactAttribute.onAuxClick;
 
 /**
  * @type {Function}
@@ -1828,3 +1848,84 @@ var topWaiting;
 var topWheel;
 
 React.Fragment = function() {};
+
+/* 16.3.0 new API */
+
+React.createContext = function() {};
+
+React.Context = function() {};
+React.Context.prototype.Provider = function() {};
+React.Context.prototype.Consumer = function() {};
+
+React.createRef = function() {};
+React.forwardRef = function() {};
+
+React.StrictMode = function () {};
+
+// https://github.com/facebook/react/blob/master/packages/shared/isTextInputElement.js#L13-L29
+// Closure will rename these properties during optimization
+// But these are used dynamically to check against element props so they must not be renamed.
+var isTextInputElement = {};
+isTextInputElement.supportedInputTypes = {
+  color: true,
+  date: true,
+  datetime: true,
+  'datetime-local': true,
+  email: true,
+  month: true,
+  number: true,
+  password: true,
+  range: true,
+  search: true,
+  tel: true,
+  text: true,
+  time: true,
+  url: true,
+  week: true
+};
+
+// 16.6 new api
+
+React.Suspense = function() {};
+React.Suspense.prototype.maxDuration;
+React.memo = function() {};
+React.lazy = function() {};
+React.unstable_ConcurrentMode = function() {};
+React.unstable_Profiler = function() {};
+
+// 16.8 Hooks
+
+React.useState = function() {};
+React.useEffect = function() {};
+React.useContext = function() {};
+React.useReducer = function() {};
+React.useCallback = function() {};
+React.useMemo = function() {};
+React.useRef = function() {};
+React.useImperativeHandle = function() {};
+React.useLayoutEffect = function() {};
+React.useDebugValue = function() {};
+
+// 16.8, for some reason renaming unstable Scheduler function calls don't work
+// with Closure node module processing.
+// unstable_now caused problems with Reagent tests.
+// These aren't neede for foreign-libs use, just :npm-deps!
+
+var Scheduler = {
+  unstable_ImmediatePriority: function() {},
+  unstable_UserBlockingPriority: function() {},
+  unstable_NormalPriority: function() {},
+  unstable_IdlePriority: function() {},
+  unstable_LowPriority: function() {},
+  unstable_runWithPriority: function() {},
+  unstable_next: function() {},
+  unstable_scheduleCallback: function() {},
+  unstable_cancelCallback: function() {},
+  unstable_wrapCallback: function() {},
+  unstable_getCurrentPriorityLevel: function() {},
+  unstable_shouldYield: function() {},
+  unstable_continueExecution: function() {},
+  unstable_pauseExecution: function() {},
+  unstable_getFirstCallbackNode: function() {},
+  unstable_now: function() {}
+};

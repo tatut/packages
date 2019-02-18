@@ -1,16 +1,27 @@
-var TextareaAutosize = {
-  "displayName": {},
-  "propTypes": {
+var TextareaAutosize = function () {};
+
+TextareaAutosize.prototype = {
+    constructor: function () {},
+    componentDidMount: function () {},
+    componentWillUnmount: function () {},
+    dispatchEvent: function () {},
+    updateLineHeight: function () {},
+    onChange: function () {},
+    saveDOMNodeRef: function () {},
+    getLocals: function () {},
+    render: function () {},
+    componentDidUpdate: function () {}
+};
+
+TextareaAutosize.defaultProps = {
+    "rows": {},
+    "async": {}
+};
+
+TextareaAutosize.propTypes = {
     "rows": {},
     "maxRows": {},
     "onResize": function (){},
-    "innerRef": function (){}
-  },
-  "defaultProps": {
-    "rows" : {}
-  },
-  "forceUpdate": function (){},
-  "isReactComponent": function (){},
-  "onChange": function (){},
-  "setState": function (){}
+    "innerRef": function (){},
+    "async": {}
 };

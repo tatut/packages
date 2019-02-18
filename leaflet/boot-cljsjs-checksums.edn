@@ -1,4 +1,10 @@
 {"cljsjs/leaflet/development/leaflet.inc.js"
+<<<<<<< HEAD
  "7CBDB3F07ACEBBD4DD72F6AC60DD3A24",
  "cljsjs/leaflet/production/leaflet.min.inc.js"
  "8C7826E60EAFDD72F979F91DD39E1320"}
+=======
+ "19755AC9041C3E49F9125E4C7DD5EDE9",
+ "cljsjs/leaflet/production/leaflet.min.inc.js"
+ "BB0FDDBB23E81D39CD1A264B4D6D9F9C"}
+>>>>>>> c25e199a0d697f6700a85756e91b8e63ab92080c

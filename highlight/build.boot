@@ -1,11 +1,11 @@
 (set-env!
   :resource-paths #{"resources"}
-  :dependencies '[[cljsjs/boot-cljsjs "0.10.0" :scope "test"]])
+  :dependencies '[[cljsjs/boot-cljsjs "0.10.3" :scope "test"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
 (def +lib-version+ "9.12.0")
-(def +version+ (str +lib-version+ "-1"))
+(def +version+ (str +lib-version+ "-2"))
 
 (task-options!
   pom  {:project     'cljsjs/highlight
@@ -26,11 +26,12 @@
                  #"build/languages/(.*)\.min\.js" "cljsjs/production/highlight/$1.min.inc.js"
                  #"build/styles/(.*)\.css" "cljsjs/common/highlight/$1.css"})
     (deps-cljs :foreign-libs [{:file #"highlight\.min\.inc\.js"
-                               :provides ["cljsjs.highlight"]}
+                               :provides ["highlight.js" "cljsjs.highlight"]
+                               :global-exports '{highlight.js hljs}}
                               ;; Each matched file will create foreign lib entry
                               {:file #"cljsjs/production/highlight/(.*)\.min\.inc\.js"
-                               :requires ["cljsjs.highlight"]
-                               :provides ["cljsjs.highlight.langs.%1$s"]}]
+                               :requires ["highlight.js"]
+                               :provides ["highlight.js/lib/languages/%1$s" "cljsjs.highlight.langs.%1$s"]}]
                :externs [#"highlight\.ext\.js"])
     (sift :include #{#"^cljsjs" #"^deps\.cljs$"})
     (pom)

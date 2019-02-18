@@ -2,7 +2,7 @@
 
 [](dependency)
 ```clojure
-[cljsjs/waypoints "4.0.0-0"] ;; latest release
+[cljsjs/waypoints "4.0.1-0"] ;; latest release
 ```
 [](/dependency)
 
@@ -15,5 +15,9 @@ so:
 (ns application.core
   (:require cljsjs.waypoints))
 ```
+
+## Npm style names
+
+Also provides the namespace `waypoints.js`.
 
 [flibs]: https://clojurescript.org/reference/packaging-foreign-deps

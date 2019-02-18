@@ -1,12 +1,12 @@
-(def +lib-version+ "0.10.17")
+(def +lib-version+ "0.12.6")
 (def +version+ (str +lib-version+ "-0"))
 
 (set-env!
  :resource-paths #{"resources"}
- :dependencies '[[cljsjs/boot-cljsjs "0.8.2" :scope "test"]
-                 [cljsjs/react "15.6.2-2"]
-                 [cljsjs/react-dom "15.6.2-2"]
-                 [cljsjs/slate "0.31.3-0"]])
+ :dependencies '[[cljsjs/boot-cljsjs "0.10.3" :scope "test"]
+                 [cljsjs/react "16.3.2-0"]
+                 [cljsjs/react-dom "16.3.2-0"]
+                 [cljsjs/slate "0.33.6-0"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
@@ -20,16 +20,13 @@
 
 (deftask package  []
   (comp
-   (download :url (str "https://unpkg.com/slate-react@" +lib-version+  "/dist/slate-react.js")
-             :checksum "fa66ac4055034ee358e698bfeca15d91")
-   (download :url (str "https://unpkg.com/slate-react@" +lib-version+  "/dist/slate-react.min.js")
-             :checksum "cdf10cc4fb391af9a817fc13825d6e5a")
-   (sift :move {#"^slate-react.js$"
-                "cljsjs/slate-react/development/slate-react.inc.js"
-                #"^slate-react.min.js"
-                "cljsjs/slate-react/production/slate-react.min.inc.js"})
+   (download :url (format "https://unpkg.com/slate-react@%s/dist/slate-react.js" +lib-version+)
+             :target "cljsjs/slate-react/development/slate-react.inc.js")
+   (download :url (format "https://unpkg.com/slate-react@%s/dist/slate-react.min.js" +lib-version+)
+             :target "cljsjs/slate-react/production/slate-react.min.inc.js")
    (sift :include #{#"^cljsjs"})
    (deps-cljs :name "cljsjs.slate-react"
               :requires ["cljsjs.react" "cljsjs.react.dom" "cljsjs.slate"])
    (pom)
-   (jar)))
+   (jar)
+   (validate)))

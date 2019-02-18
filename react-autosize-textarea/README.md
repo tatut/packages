@@ -2,7 +2,7 @@
 
 [](dependency)
 ```clojure
-[cljsjs/react-autosize-textarea "0.4.8-0"] ;; latest release
+[cljsjs/react-autosize-textarea "4.0.0-0"] ;; latest release
 ```
 [](/dependency)
 

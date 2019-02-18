@@ -1,6 +1,6 @@
 (set-env!
   :resource-paths #{"resources"}
-  :dependencies '[[cljsjs/boot-cljsjs "0.9.0"  :scope "test"]
+  :dependencies '[[cljsjs/boot-cljsjs "0.10.3"  :scope "test"]
                   [cljsjs/react "16.2.0-3"]
                   [cljsjs/react-dom "16.2.0-3"]
                   [cljsjs/classnames "2.2.3-0"]])
@@ -11,7 +11,7 @@
          '[clojure.java.io :as io]
          '[boot.util :refer [sh]])
 
-(def +lib-version+ "8.6.0")
+(def +lib-version+ "8.6.1")
 (def +version+ (str +lib-version+ "-0"))
 
 (task-options!
@@ -43,9 +43,9 @@
         (io/file tmp +lib-folder+ "webpack-cljsjs.config.js"))
       (binding [boot.util/*sh-dir* (str (io/file tmp +lib-folder+))]
         ((sh (cmd "npm") "install" "--production"))
-        ((sh (cmd "npm") "install" "react" "react-dom" "webpack" "babel-loader" "babel-core" "babel-preset-react" "babel-preset-env" "babel-preset-stage-0" "babel-plugin-add-module-exports" "less"))
+        ((sh (cmd "npm") "install" "react" "react-dom" "webpack@3" "babel-loader" "babel-core" "babel-preset-react" "babel-preset-env" "babel-preset-stage-0" "babel-plugin-add-module-exports" "less"))
         ((sh (cmd (path (str (io/file tmp +lib-folder+) "/node_modules/.bin/webpack"))) "--config" "webpack-cljsjs.config.js"))
-        ((sh (cmd (path (str (io/file tmp +lib-folder+) "/node_modules/.bin/lessc"))) "assets/index.less" ">" "rc-slider.css")))
+        ((sh (cmd (path (str (io/file tmp +lib-folder+) "/node_modules/.bin/lessc"))) "assets/index.less" "rc-slider.css")))
       (-> fileset (boot/add-resource tmp) boot/commit!))))
 
 (deftask package []
